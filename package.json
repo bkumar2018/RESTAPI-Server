@@ -1,0 +1,14 @@
+{
+  "name": "apiserver",
+  "version": "1.0.0",
+  "description": "This is API test using node service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Birender Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
