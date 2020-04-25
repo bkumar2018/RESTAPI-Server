@@ -7,6 +7,8 @@ Pre-conditions:
 v12.16.1
 
 
+
+
 Execute:   
 #npm init
 And follow the default configuration simply press ENTER.
