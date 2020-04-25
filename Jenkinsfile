@@ -7,7 +7,7 @@ node {
 		sh 'docker build -t dockeridbiru2019/api-server:1.0.0 .'	
 	}
 	
-	stage('Push Docker Image'){
+    stage('Push Docker Image'){
 		//create from pipline syntax below func.
 		
 		withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
