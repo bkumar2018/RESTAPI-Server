@@ -1,16 +1,19 @@
-
 const express = require('express');
 const app = express()
 
+var bodyParser = require('body-parser');
+// Create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
 //User Data
 const userInfoData = [
-	{
-		id:1,
-		firstname:"Birender",
-		lastname:"Kumar",
-		city:"Pune",
-		pin:12345
-	},
+        {
+                id:1,
+                firstname:"Birender",
+                lastname:"Kumar",
+                city:"Pune",
+                pin:12345
+        },
         {
                 id:2,
                 firstname:"Bipin",
@@ -25,21 +28,21 @@ const userInfoData = [
                 city:"Mumbai",
                 pin:67890
         },
-	{
+        {
                 id:4,
                 firstname:"Abhi",
                 lastname:"Singh",
                 city:"Pune",
                 pin:12345
         },
-	{
+        {
                 id:5,
                 firstname:"Arjun",
                 lastname:"Singh",
                 city:"Ballia",
                 pin:54321
         }
-	
+
 ];
 
 //create end points urls
@@ -54,18 +57,32 @@ app.get('/api/users', function (req, res) {
 app.get('/api/users/:id', function (req, res) {
   const id = req.params.id;
   const user = userInfoData.find(user => user.id == id)
-	
+
   if(user){
-	res.json(user)
+        res.json(user)
   }
   else{
-  	res.send('This user not exists')
+        res.send('This user not exists')
   }
 
 })
 
+//create end point url for post request
+app.post('/process_post',urlencodedParser ,function (req, res) {
+   // Prepare output in JSON format
+   response = {
+       first_name:req.body.first_name,
+       last_name:req.body.last_name
+   };
+   console.log(response);
+   res.end(JSON.stringify(response));
+})
+
 //start the node server on port 3000
-app.listen(3000)
+var server = app.listen(3000, function(){
 
+  var host = server.address().address
+  var port = server.address().port
+  console.log("Example app listening at http://%s:%s", host, port)
 
-
+})
