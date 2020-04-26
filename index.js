@@ -31,7 +31,15 @@ const userInfoData = [
                 lastname:"Singh",
                 city:"Pune",
                 pin:12345
+        },
+	{
+                id:5,
+                firstname:"Arjun",
+                lastname:"Singh",
+                city:"Ballia",
+                pin:54321
         }
+	
 ];
 
 //create end points urls
