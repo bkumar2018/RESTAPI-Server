@@ -24,6 +24,13 @@ const userInfoData = [
                 lastname:"Singh",
                 city:"Mumbai",
                 pin:67890
+        },
+	{
+                id:4,
+                firstname:"Abhi",
+                lastname:"Singh",
+                city:"Pune",
+                pin:12345
         }
 ];
 
