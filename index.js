@@ -70,16 +70,6 @@ app.get('/api/users/:id', function (req, res) {
 })
 
 //create end point url for post request
-app.post('/process_post',urlencodedParser ,function (req, res) {
-   // Prepare output in JSON format
-   response = {
-       first_name:req.body.first_name,
-       last_name:req.body.last_name
-   };
-   console.log(response);
-   res.end(JSON.stringify(response));
-})
-
 app.post('/api/addusers', function(req, res){
         const newUser = {
                 id: userInfoData.length+1,
