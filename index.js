@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express()
 
-var bodyParser = require('body-parser');
-// Create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+const bodyParser = require('body-parser');
+// Parse incoming requests data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 //User Data
 const userInfoData = [
@@ -77,6 +79,24 @@ app.post('/process_post',urlencodedParser ,function (req, res) {
    console.log(response);
    res.end(JSON.stringify(response));
 })
+
+app.post('/api/addusers', function(req, res){
+        const newUser = {
+                id: userInfoData.length+1,
+                firstname : req.body.firstname,
+                lastname: req.body.lastname,
+                city: req.body.city,
+                pin : req.body.pin
+        }
+        userInfoData.push(newUser);
+        res.status(201).send({
+          sucess:'true',
+          message: 'user added successfully',
+          userInfoData
+        })
+});
+
+
 
 //start the node server on port 3000
 var server = app.listen(3000, function(){
