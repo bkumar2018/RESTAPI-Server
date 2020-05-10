@@ -22,7 +22,7 @@ node {
 		def dockerRun = 'docker run -p 3000:3000 -d  dockeridbiru2019/api-server:1.0.0'
 	    	//add sshAgent from pipeline as below
 		    sshagent(['tomcat-dev']) {
-		    sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.116.110 ${dockerRun}"	
+		    sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.152.22 ${dockerRun}"	
 	    }
 	}
 	   
