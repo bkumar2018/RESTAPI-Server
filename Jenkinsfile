@@ -20,8 +20,10 @@ node {
     stage('Run container on Dev server'){
 	
 		def dockerRun = 'docker run -p 3000:3000 -d  dockeridbiru2019/api-server:1.0.0'
+	    	def dockerContainerClean = ' sudo docker rm -f $(docker ps -qa)'
 	    	//add sshAgent from pipeline as below
 		    sshagent(['tomcat-dev']) {
+		    sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.152.22 ${dockerContainerClean}"		    
 		    sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.152.22 ${dockerRun}"	
 	    }
 	}
