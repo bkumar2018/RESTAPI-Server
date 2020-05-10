@@ -80,7 +80,7 @@ app.post('/api/addusers', function(req, res){
         }
         userInfoData.push(newUser);
         res.status(201).send({
-          sucess:'true',
+          success:'true',
           message: 'user added successfully',
           userInfoData
         })
