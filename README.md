@@ -29,3 +29,7 @@ Or
 curl http://localhost:3000/api
 curl http://localhost:3000/api/users
 curl http://localhost:3000/api/users/1
+
+
+GitHub settings : webhook: add webhook
+http://hostnameORipaddressOfJenkins:8080/github-webhook/   [Remember do not forget to put'/' in the end ]
