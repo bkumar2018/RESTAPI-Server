@@ -1,12 +1,10 @@
 # RESTAPI-Server 
 
-
 Pre-conditions:
 #npm -v
 6.13.4
 #node -v
 v12.16.1
-
 
 Execute:   
 #npm init
