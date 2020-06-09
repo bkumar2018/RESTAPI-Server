@@ -1,31 +1,21 @@
-node {
-    stage('SCM repo'){
-        git credentialsId: 'Git-cred', url: 'https://github.com/bkumar2018/RESTAPI-Server'
-    }
-    
-    stage('Build Docker Image'){
-		sh 'docker build -t dockeridbiru2019/api-server:1.0.0 .'	
-	}
-	
-    stage('Push Docker Image'){
-		//create from pipline syntax below func.
-		
-		withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
-			sh "docker login -u dockeridbiru2019 -p ${dockerHubPwd}"
+pipline{
+	agent any
+	stages{
+		stage('build'){
+			steps{
+				echo 'building the application..'
+			}
 		}
-			sh 'docker push dockeridbiru2019/api-server:1.0.0'	
-	}
-	
-	
-    stage('Run container on Dev server'){
-	
-		def dockerRun = 'docker run -p 3000:3000 -d  dockeridbiru2019/api-server:1.0.0'
-	    	//def dockerContainerClean = ' sudo docker rm -f $(docker ps -qa)'
-	    	//add sshAgent from pipeline as below
-		    sshagent(['tomcat-dev']) {
-		   // sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.152.22 ${dockerContainerClean}"		    
-		    sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.60.41 ${dockerRun}"	
-	    }
-	}
-	   
+		stage('test'){
+			steps{
+				'testing the application..'
+			}			
+		}
+		
+		stage('deploy'){
+			steps{
+				'deploying the application..'
+			}	
+		}
+	}	
 }
