@@ -23,7 +23,8 @@ node {
 	    	//def dockerContainerClean = ' sudo docker rm -f $(docker ps -qa)'
 	    	//add sshAgent from pipeline as below
 		    sshagent(['tomcat-dev']) {
-		   // sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.152.22 ${dockerContainerClean}"		    
+		   // sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.152.22 ${dockerContainerClean}"
+			    //update dev-server ip address in below commnd, to ssh this machine and run dockerRun command
 		    sh "ssh -o StrictHostKeyChecking=no ec2-user@13.126.189.145 ${dockerRun}"	
 	    }
 	}
