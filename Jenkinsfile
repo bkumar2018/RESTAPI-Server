@@ -24,7 +24,7 @@ node {
 	    	//add sshAgent from pipeline as below
 		    sshagent(['tomcat-dev']) {
 		   // sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.152.22 ${dockerContainerClean}"		    
-		    sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.60.41 ${dockerRun}"	
+		    sh "ssh -o StrictHostKeyChecking=no ec2-user@13.126.189.145 ${dockerRun}"	
 	    }
 	}
 	   
