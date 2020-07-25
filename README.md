@@ -1,4 +1,4 @@
-#Test code to build API Server
+#Test code to build API Server and delpoy on server dev machine
 # RESTAPI-Server 
 
 Pre-conditions:
