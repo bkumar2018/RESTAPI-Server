@@ -25,7 +25,7 @@ node {
 		    sshagent(['tomcat-dev']) {
 		   // sh "ssh -o StrictHostKeyChecking=no ec2-user@13.233.152.22 ${dockerContainerClean}"
 			    //update dev-server ip address in below commnd, to ssh this machine and run dockerRun command
-		    sh "ssh -o StrictHostKeyChecking=no ec2-user@13.126.220.115 ${dockerRun}"	
+		    sh "ssh -o StrictHostKeyChecking=no ec2-user@43.205.95.255 ${dockerRun}"	
 	    }
 	}
 	   
