@@ -45,3 +45,25 @@ Step-3: Stop the container which one is running on the same port using this comm
 
 docker stop <container id> 
 4. build again from jenkins
+
+Also This can be tried on local machine, below steps:
+Pre-conditions:
+1. make sure git and docker is install on system
+2. git clone https://github.com/bkumar2018/RESTAPI-Server.git
+3. cd RESTAPI-Server
+4. execute docker command to create image -->  docker build -t dockeridbiru2019/api-server:1.0.0 .
+5. run image --> docker run -p 3000:3000 -d  dockeridbiru2019/api-server:1.0.0
+6. check running container --> docker ps -a
+7. Now we are ready to use RESTAPI-server access from browser or from POSTMAN:
+8. GET ---> http://localhost:3000/api
+9. GET ----> http://localhost:3000/api/users
+10. GET ----> http://localhost:3000/api/users/1
+11. POST ----> http://localhost:3000/api/addusers
+BODY:
+{
+        "id": 0,
+        "firstname": "Shriram",
+        "lastname": "Singh",
+        "city": "Pune",
+        "pin": 20062022
+    }
