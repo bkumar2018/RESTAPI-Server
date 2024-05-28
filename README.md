@@ -1,11 +1,19 @@
 #Test code to build API Server 
 # RESTAPI-Server 
 
+
 Pre-conditions:
 #npm -v
 6.13.4
 #node -v
 v12.16.1
+
+Commands to intall:
+#sudo apt update
+#sudo apt install nodejs npm
+Verify the installation:
+#node -v
+#npm -v
 
 Execute:   
 #npm init
